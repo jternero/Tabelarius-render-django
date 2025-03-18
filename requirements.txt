@@ -1,0 +1,17 @@
+# Django Framework
+Django>=4.0,<5.0
+
+# Servidor WSGI para Render
+gunicorn
+
+# Base de datos (si usas PostgreSQL en Render)
+psycopg2-binary
+
+# Web Scraping y Selenium para FACe
+selenium
+webdriver-manager
+
+# Otras dependencias necesarias
+requests
+pillow
+python-dotenv  # Para manejar variables de entorno en Render

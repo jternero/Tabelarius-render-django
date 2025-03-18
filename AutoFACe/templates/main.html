@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Main - Tabellarius</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Google Fonts y Font Awesome -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Cargar CSS desde la carpeta static -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    
+    <style>
+      /* Contenedor de los botones */
+      .clickable-icon {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border-radius: 10px;
+        transition: background 0.3s, transform 0.2s;
+        text-decoration: none;
+        position: relative;
+        background: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+      }
+
+      .clickable-icon:hover {
+        background: rgba(0, 0, 0, 0.05);
+        transform: scale(1.05);
+      }
+
+      /* Estilo del tooltip */
+      .tooltip-text {
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.85);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+        transform: translateX(-50%) translateY(5px);
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .clickable-icon:hover .tooltip-text {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="clickable-icon" onclick="window.location.href = '{% url 'main' %}';">
+          <img src="{% static 'img/Tabellarius_img.png' %}" alt="Logotipo Tabellarius" style="max-height: 50px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'main' %}">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <!-- Primer elemento -->
+          <div class="col-md-6 text-center" style="margin-bottom: 20px; position: relative;">
+            <a href="{% url 'face' %}" class="clickable-icon d-block">
+              <img src="{% static 'img/logo_FACe.png' %}" alt="Logotipo FACe" style="max-height: 40px;">
+              <div class="tooltip-text">Enviar facturas a FACe</div>
+            </a>
+          </div>
+          <!-- Segundo elemento -->
+          <div class="col-md-6 text-center" style="margin-bottom: 20px;">
+            <a href="{% url 'sede' %}" class="clickable-icon d-block">
+              <img src="{% static 'img/imageSEDE.png' %}" alt="Logotipo SEDE" style="max-height: 40px;">
+              <div class="tooltip-text">Enviar a la Sede Electrónica</div>
+            </a>
+          </div>
+        </div><!-- /.row -->
+      </div>
+    </section>
+
+    <!-- Cargar JS desde static -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

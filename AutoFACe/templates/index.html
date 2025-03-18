@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Iniciar Sesión - Tabellarius</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Google Fonts y Font Awesome -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Cargar CSS desde la carpeta static -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <section class="ftco-section">
+      <div class="container">
+        <h2 class="text-center mb-4">Tabellarius</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-7 col-lg-5">
+            
+            <div class="login-wrap p-4 p-md-5">
+
+              
+              <h3 class="text-center mb-4">Iniciar Sesión</h3>
+
+              <!-- Formulario de login con Django -->
+              <form method="POST" action="{% url 'login' %}" class="login-form">
+                {% csrf_token %}
+                <div class="form-group">
+                  <input type="text" name="username" class="form-control rounded-left" placeholder="Usuario" required />
+                </div>
+                <div class="form-group d-flex">
+                  <input type="password" name="password" class="form-control rounded-left" placeholder="Contraseña" required />
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary rounded submit px-3">Iniciar Sesión</button>
+                </div>
+                <div class="form-group d-md-flex">
+                  <div class="w-50 text-left">
+                    <label class="checkbox-wrap checkbox-primary">
+                      Recordarme<input type="checkbox" checked />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="w-50 text-md-right">
+                    <a href="#" onclick="Swal.fire('Oops!', 'El restablecimiento de contraseña no está disponible.', 'error'); return false;">
+                      ¿Olvidaste tu contraseña?
+                    </a>
+
+                  </div>
+                </div>
+              </form>
+
+              <p class="text-center">
+                ¿No tienes una cuenta? <a href="{% url 'register' %}">Regístrate aquí</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cargar JS desde static -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
