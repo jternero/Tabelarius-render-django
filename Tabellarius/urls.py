@@ -36,5 +36,10 @@ urlpatterns = [
 
 ]
 
+<<<<<<< HEAD
 #if settings.DEBUG:
 #    urlpatterns += static(settings.STATIC_URL, document_root=os.path.join(settings.BASE_DIR, "staticfiles"))
+=======
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=os.path.join(settings.BASE_DIR, "../staticfiles"))
+>>>>>>> 80090b5 (Render fixes 3)

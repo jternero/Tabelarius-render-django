@@ -15,9 +15,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 # Opciones del navegador Chrome para ejecutar sin GUI (headless)
 def get_chrome_driver(download_folder):
     chrome_options = Options()
+    chrome_options.binary_location = os.getenv("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--window-size=1920,1080")
-    
+    service = Service(os.getenv("CHROMEDRIVER_BIN"))
+
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
     chrome_options.add_experimental_option("prefs", {
