@@ -16,7 +16,7 @@ def index(request):
     """
     if request.user.is_authenticated:
         return redirect('main')
-    return render(request, 'index.html')
+    return render(request, 'base.html')
 
 @login_required
 def main(request):
@@ -156,6 +156,9 @@ def face_upload(request):
         return JsonResponse({"message": "Archivos subidos correctamente.", "selenium": selenium_result})
 
     return render(request, 'face_upload.html')
+
+def base(request):
+    return render(request, 'base.html')
 
 def exito(request):
     return render(request, 'exito.html')

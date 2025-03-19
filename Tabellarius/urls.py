@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from AutoFACe.views import index, login_view, register, user_logout, main, face, sede, face_upload, exito
+from AutoFACe.views import index, login_view, register, user_logout, main, face, sede, face_upload, exito, base
 from django.shortcuts import render
 from django.conf import settings
 from django.conf.urls.static import static
@@ -33,6 +33,7 @@ urlpatterns = [
     path('sede/', sede, name='sede'),              # Página principal del usuario
     path('face_upload/', face_upload, name='face_upload'),
     path('exito/', lambda request: render(request, 'exito.html'), name='exito'),
+    path('base/', base, name='base'),
 
 ]
 

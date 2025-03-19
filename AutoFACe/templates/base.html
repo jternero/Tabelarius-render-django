@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Jaimgreg - Contacto</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+  </head>
+  <body class="is-preload">
+    <!-- Header -->
+    <section id="header">
+      <header>
+        <span class="image avatar"><img src="{% static 'images/jaimgreg_banner.jpg' %}" alt="Jaimgreg" /></span>
+        <h1 id="logo"><a href="https://www.linkedin.com/in/jaimgreg-ternero/">Jaimgreg Ternero</a></h1>
+        <p>
+          Profesional en ciberseguridad, automatización e inteligencia artificial.<br />
+          Contáctame para proyectos innovadores y soluciones tecnológicas.
+        </p>
+      </header>
+      <nav id="nav">
+        <ul>
+          <li>
+            <a href="#one" class="active">Sobre Mí</a>
+          </li>
+          <li>
+            <a href="#two">Servicios</a>
+          </li>
+          <li>
+            <a href="#three">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <!-- One -->
+        <section id="one">
+          <div class="container">
+            <header class="major">
+              <h3>Sobre Mí</h3>
+              <p>
+                💡 Especializado en el desarrollo de soluciones tecnológicas innovadoras, con un enfoque en 
+                automatización de procesos, ciberseguridad y optimización administrativa. Programo en Python y 
+                tengo experiencia en el desarrollo de backend para ayuntamientos y empresas, facilitando la 
+                gestión de licitaciones y navegando por sus complejidades burocráticas. Además, cuento con 
+                experiencia en atención al cliente y administración. Me formé en la Universidad de La Laguna y 
+                en 42 Málaga, lo que me ha permitido abordar desafíos tecnológicos con una mentalidad práctica e 
+                innovadora.
+              </p>
+                          </header>
+          </div>
+        </section>
+
+        <!-- Two -->
+        <section id="two">
+          <div class="container">
+            <h3>Servicios</h3>
+            <ul class="feature-icons">
+              <li class="icon solid fa-lock">Ciberseguridad y auditoría de sistemas</li>
+              <li class="icon solid fa-cogs">Automatización de procesos</li>
+              <li class="icon solid fa-brain">Inteligencia Artificial y Machine Learning</li>
+              <li class="icon solid fa-cloud">Integraciones en la nube</li>
+              <li class="icon solid fa-code">Desarrollo de software y optimización</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Three -->
+        <section id="three">
+            <div class="container">
+                <h3>Contacto</h3>
+                <p>Ponte en contacto para discutir nuevas oportunidades y colaboraciones.</p>
+        
+                <!-- Información de contacto en línea -->
+                <div class="contact-info">
+                    <a href="mailto:jaimgregternero@gmail.com"><i class="fa fa-envelope"></i> jaimgregternero@gmail.com</a>
+                    <a href="https://www.google.com/maps/place/Málaga,+Spain" target="_blank"><i class="fa fa-map-marker-alt"></i> Málaga, España</a>
+                    <a href="https://www.linkedin.com/in/jaimgreg-ternero/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/jternero" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </section>
+            <div class="container">
+                <!-- Formulario de contacto -->
+                <form id="contact-form">
+                    <div class="row gtr-uniform">
+                        <div class="col-6 col-12-xsmall">
+                            <input type="text" name="name" id="name" placeholder="Nombre" required />
+                        </div>
+                        <div class="col-6 col-12-xsmall">
+                            <input type="email" name="email" id="email" placeholder="Correo Electrónico" required />
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" id="message" placeholder="Mensaje" rows="6" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <ul class="actions">
+                                <li><input type="submit" class="primary" value="Enviar Mensaje" /></li>
+                                <li><input type="reset" value="Limpiar" class="alt" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <section id="footer">
+        <div class="container">
+          <ul class="copyright">
+            <li>&copy; Jaimgreg Ternero. Todos los derechos reservados.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Notificación -->
+<div id="notification" class="hidden">
+    <p id="notification-message"></p>
+</div>
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita el envío tradicional
+        
+            // Captura los valores del formulario
+            let formData = new FormData(this);
+        
+            // Enviar los datos a Formspree o a tu backend
+            fetch("https://formspree.io/f/YOUR_FORM_ID", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    showNotification("✅ Mensaje enviado con éxito.");
+                    document.getElementById("contact-form").reset(); // Limpia el formulario
+                } else {
+                    showNotification("❌ Error al enviar el mensaje. Inténtalo de nuevo.");
+                }
+            })
+            .catch(error => {
+                showNotification("❌ Error en la conexión. Verifica tu conexión a Internet.");
+            });
+        });
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const links = document.querySelectorAll(".menu-link");
+        
+                function setActiveLink() {
+                    let fromTop = window.scrollY;
+                    links.forEach(link => {
+                        let section = document.querySelector(link.getAttribute("href"));
+                        if (section.offsetTop <= fromTop + 100 && section.offsetTop + section.offsetHeight > fromTop + 100) {
+                            links.forEach(l => l.classList.remove("active"));
+                            link.classList.add("active");
+                        }
+                    });
+                }
+        
+                window.addEventListener("scroll", setActiveLink);
+            });
+        </script>
+        
+  </body>
+</html>
