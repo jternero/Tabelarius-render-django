@@ -31,7 +31,7 @@ SECRET_KEY = "django-insecure-7&^m5dejf22!=#wt7ruq5%oixuka%4lr&_9ehg2dhi&0h-cc!n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tabelarius.onrender.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['jaimgreg-ternero.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
