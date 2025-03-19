@@ -28,8 +28,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Carpeta donde se guardarán los 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-7&^m5dejf22!=#wt7ruq5%oixuka%4lr&_9ehg2dhi&0h-cc!n"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# SECURTY WARNING: don't run with debug turned on in production!
+DEBUG = False
 
 ALLOWED_HOSTS = ['jaimgreg-ternero.onrender.com', '127.0.0.1', 'localhost']
 
